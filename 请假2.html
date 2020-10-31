@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>填写申请 - 学生临时出入申请</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta name="keywords" content="InfoPlus">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta itemscope="csrfToken" content="oqbypjw1jOVNn4FJXJQH68ceN1HP8zW8">
+    <meta name="theme-color" content="#039be5">
+    <!-- disable phone number link in mobile safari -->
+    <meta name="format-detection" content="telephone=no">
+
+    <link href="http://yzbfw.ccnu.edu.cn/infoplus/static/themes/default/desktop/css/theme.css?v=20200611-193502" rel="stylesheet">
+    <link href="http://yzbfw.ccnu.edu.cn/infoplus/static/themes/default/mobile/css/theme.css?v=20200611-193502" rel="stylesheet">
+    <script type="text/javascript">
+        var initGlobalVariable = function() {
+            $$.PRINT = false;
+            $$.VIEWS_ONLY = false;
+
+            $$.MOBILE = true;
+
+        };
+
+        var switchView = function() {
+            $("#div_loader_progress").animate({
+                height: "0",
+                opacity: 0.5
+            }, 200, function() {
+                $("#div_loader").hide();
+                $("#div_render_container").show();
+
+                //触发全局表单可见事件，这里可以处理和表单中元素的高度、可见等相关的代码
+                $$.visible();
+            });
+        };
+    </script>
+    <style>
+        [autoheight] {
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        
+        body {
+            width: 361px;
+            margin: 0 !important;
+        }
+        
+        #form_holder {
+            box-shadow: none;
+        }
+        
+        #div_render_container {}
+        
+        #div_render_container {
+            position: relative;
+            text-align: center;
+            display: none;
+            background-color: #f3f3f3;
+            overflow: hidden;
+        }
+        
+        form {
+            display: block;
+            margin-top: 0em;
+        }
+        
+        #div_render_container {
+            position: relative;
+            text-align: center;
+            display: none;
+        }
+        
+        .div_content {
+            background-color: #f3f3f3 !important;
+        }
+        
+        .div_content {
+            text-align: left;
+            padding-left: 0;
+            padding-right: 0;
+            background-color: white;
+            margin: auto;
+        }
+        
+        body,
+        div,
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        ul,
+        li,
+        table,
+        img {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        
+        #header_holder {
+            left: 0;
+            right: 0;
+            position: fixed;
+            z-index: 1;
+            min-width: 310px;
+        }
+        
+        #title_holder.todo {
+            background-color: #039be5;
+        }
+        
+        #title_holder {
+            height: 46px;
+        }
+        
+        #title_holder {
+            height: 40px;
+            color: white;
+        }
+        
+        #title_icon {
+            height: 46px;
+            line-height: 46px;
+        }
+        
+        #title_icon {
+            display: inline-block;
+            float: left;
+            width: 36px;
+            height: 40px;
+            font-size: 24px;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+        }
+        
+        i {
+            font-family: 'icomoon' !important;
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
+        #title_content {
+            line-height: 46px;
+        }
+        
+        #title_content {
+            padding-left: 5px;
+            line-height: 40px;
+            font-size: 12px;
+            color: white;
+            float: left;
+            text-align: left;
+            font-weight: bold;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        #title_description {
+            line-height: 45px;
+        }
+        
+        #title_description {
+            padding-right: 9px;
+            line-height: 39px;
+            font-size: 12px;
+            color: #eee;
+            float: right;
+        }
+        
+        #title_description_short {
+            line-height: 45px;
+        }
+        
+        #title_description_short {
+            padding-right: 9px;
+            line-height: 39px;
+            font-size: 12px;
+            color: #eee;
+            float: right;
+            display: none;
+        }
+        
+        #command_holder {
+            height: 48px;
+        }
+        
+        #command_holder {
+            width: 100%;
+            height: 36px;
+            background-color: #f5f5f5;
+            filter: progid: DXImageTransform.Microsoft.Shadow(color=#cccccc, direction=180, strength=2);
+        }
+        
+        .clear {
+            content: "";
+            display: table;
+            clear: both;
+            height: 0;
+            visibility: hidden;
+        }
+        
+        #command_bar_title_icon.todo {
+            background-color: #039be5;
+        }
+        
+        #command_bar_title_icon {
+            width: 42px;
+            height: 48px;
+            line-height: 48px;
+        }
+        
+        #command_bar_title_icon {
+            float: left;
+            list-style: none;
+            width: 36px;
+            height: 36px;
+            font-size: 24px;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            line-height: 36px;
+            z-index: 1;
+            position: relative;
+        }
+        
+        i {
+            font-family: 'icomoon' !important;
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        #form_command_bar {
+            height: 48px;
+        }
+        
+        #form_command_bar {
+            background-color: #f5f5f5;
+            padding-right: 3px;
+            min-width: 280px;
+            position: relative;
+        }
+        
+        #command_holder li.command_button {
+            height: 38px;
+        }
+        
+        #command_holder li.command_button {
+            height: 40px;
+            margin: 4px 2px 4px 6px;
+            float: left;
+            position: relative;
+            text-align: left;
+            list-style: none;
+        }
+        
+        #form_command_bar li.hide {
+            display: none;
+        }
+        
+        li.command_menu {
+            height: 38px;
+        }
+        
+        li.command_menu {
+            height: 26px;
+            margin: 4px 6px;
+            float: left;
+            position: relative;
+            text-align: left;
+            list-style: none;
+        }
+        
+        .btn-group {
+            position: relative;
+            font-size: 0;
+            vertical-align: middle;
+            white-space: nowrap;
+            *margin-left: .3em;
+        }
+        
+        li.tool_button {
+            margin: 2px 2px;
+        }
+        
+        li.tool_button {
+            margin: 4px 2px;
+            position: relative;
+            text-align: center;
+            list-style: none;
+            float: right;
+        }
+        
+        #command_holder .command_button_content {
+            width: 100px;
+            min-width: 100px;
+            padding: 3px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            line-height: 32px;
+        }
+        
+        #command_holder .command_button_content {
+            font-weight: bold;
+            min-width: 118px;
+            display: inline-block;
+            *display: inline;
+            padding: 3px 8px;
+            margin-bottom: 0;
+            *margin-left: .3em;
+            font-size: 14px;
+            /* line-height: 20px; */
+            /* *line-height: 20px; */
+            color: #009966;
+            text-align: center;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+            vertical-align: middle;
+            cursor: pointer;
+            background-color: #FFFFFF;
+            *background-color: #FFFFFF;
+            border: 1px solid #FFFFFF;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            *zoom: 1;
+            border-color: #c5c5c5;
+            border-color: rgba(0, 0, 0, 0.08) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.15);
+        }
+        
+        a {
+            color: #0560a6;
+            text-decoration: none;
+        }
+        
+        .scroll_tip.left {
+            top: 42px;
+        }
+        
+        .scroll_tip.left {
+            padding: 6px;
+            top: 30px;
+        }
+        
+        .scroll_tip {
+            top: 42px;
+        }
+        
+        .scroll_tip {
+            white-space: nowrap;
+            position: absolute;
+            font-size: 12px;
+            left: 0;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            color: white;
+            top: 30px;
+        }
+        
+        .alpha40 {
+            background: rgb(0, 0, 0);
+            background: rgba(0, 0, 0, 0.4);
+            background: transparent \9;
+            zoom: 1;
+            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr=#66000000, endColorstr=#66000000);
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000, endColorstr=#66000000)";
+        }
+        
+        #command_holder .command_button_content.command_button_all {
+            width: 150px;
+            font-size: 1rem;
+        }
+        
+        li.command_menu span.caret {
+            margin-top: 14px;
+        }
+        
+        li.command_menu span.caret {
+            margin-top: 8px;
+        }
+        
+        .caret {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            vertical-align: top;
+            border-top: 4px solid #000000;
+            border-right: 4px solid transparent;
+            border-left: 4px solid transparent;
+            content: "";
+        }
+        
+        .btn-group>.dropdown-menu {
+            font-size: 1rem;
+        }
+        
+        .btn-group>.btn,
+        .btn-group>.dropdown-menu {
+            font-size: 14px;
+        }
+        
+        .dropdown-menu {
+            padding-top: 13px;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: none;
+            float: left;
+            min-width: 160px;
+            padding: 5px 0;
+            margin: 2px 0 0;
+            list-style: none;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            *border-right-width: 2px;
+            *border-bottom-width: 2px;
+            -webkit-border-radius: 6px;
+            -moz-border-radius: 6px;
+            border-radius: 6px;
+            -webkit-background-clip: padding-box;
+            -moz-background-clip: padding;
+            background-clip: padding-box;
+        }
+        
+        .dropdown-menu a {
+            line-height: 2.6rem;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 3px 20px;
+            clear: both;
+            font-weight: normal;
+            line-height: 20px;
+            color: #333333;
+            white-space: nowrap;
+        }
+        
+        .scroll_tip.left {
+            top: 42px;
+        }
+        
+        .scroll_tip.left {
+            padding: 6px;
+            top: 30px;
+        }
+        
+        .scroll_tip {
+            top: 42px;
+        }
+        
+        .scroll_tip {
+            white-space: nowrap;
+            position: absolute;
+            font-size: 12px;
+            left: 0;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            color: white;
+            top: 30px;
+        }
+        
+        li.tool_button {
+            margin: 2px 2px;
+        }
+        
+        li.tool_button {
+            margin: 4px 2px;
+            position: relative;
+            text-align: center;
+            list-style: none;
+            float: right;
+        }
+        
+        a.tool_button {
+            line-height: 34px;
+            padding: 3px 5px;
+            font-size: 1.6rem;
+        }
+        
+        i {
+            font-family: 'icomoon' !important;
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        #form_command_bar li.hide {
+            display: none;
+        }
+        
+        li.tool_button {
+            margin: 2px 2px;
+        }
+        
+        li.tool_button {
+            margin: 4px 2px;
+            position: relative;
+            text-align: center;
+            list-style: none;
+            float: right;
+        }
+        
+        a.tool_button {
+            line-height: 34px;
+            padding: 3px 5px;
+            font-size: 1.6rem;
+        }
+        
+        a.tool_button {
+            display: inline-block;
+            *display: inline;
+            padding: 3px;
+            margin-bottom: 0;
+            *margin-left: .3em;
+            font-size: 22px;
+            line-height: 18px;
+            *line-height: 18px;
+            text-align: center;
+            vertical-align: middle;
+            text-decoration: none;
+            cursor: pointer;
+            border: 1px solid transparent;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            color: #4a4a4a;
+        }
+        
+        #renderContent_holder {
+            border-top: 1px #d5d5d5 solid;
+            margin-top: 10px;
+            background-color: white;
+            box-shadow: 0 5px 15px #c1c1c1;
+            overflow: hidden;
+        }
+        
+        #renderContent_holder {
+            background-color: white;
+            text-align: center;
+        }
+        
+        #nav_menu {
+            top: 88px;
+        }
+        
+        #nav_menu {
+            position: fixed;
+            height: 100%;
+            width: 158px;
+            left: 0;
+            top: 76px;
+            background-color: #FFFFFF;
+            filter: progid: DXImageTransform.Microsoft.Shadow(color=#cccccc, direction=90, strength=4);
+            overflow-y: auto;
+            z-index: 1;
+            padding-top: 8px;
+        }
+        
+        .nav_menu_group {
+            box-sizing: border-box;
+            list-style: none;
+            padding: 2px 0;
+            position: relative;
+        }
+        
+        #nav_menu li {
+            line-height: 1.8rem;
+        }
+        
+        #nav_menu li {
+            list-style: none;
+            line-height: 20px;
+            text-align: left;
+            padding: 6px 0 1px 10px;
+            color: #858585;
+            cursor: pointer;
+        }
+        
+        #nav_menu .menu_icon_history {
+            color: #4CAF50;
+        }
+        
+        #nav_menu .menu_icon {
+            font-size: 20px;
+        }
+        
+        i {
+            font-family: 'icomoon' !important;
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        #nav_menu .menu_text {
+            font-size: 1rem;
+        }
+        
+        #nav_menu .menu_text {
+            margin-left: 10px;
+            vertical-align: top;
+            display: inline-block;
+            overflow: hidden;
+            width: 100px;
+            text-overflow: ellipsis;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        #render_holder {
+            display: inline-block;
+            text-align: center;
+            position: relative;
+        }
+        
+        #form_holder {
+            margin-bottom: 10px;
+            background-color: white;
+        }
+        
+        #form_holder {
+            background-color: white;
+        }
+        
+        #form_holder {
+            height: auto;
+            background-color: white;
+            position: relative;
+        }
+        
+        div.infoplus_view_wrap_outer {
+            margin: 0;
+        }
+        
+        div.infoplus_view_wrap_outer {
+            overflow: hidden;
+            background-color: white;
+            margin-bottom: 10px;
+        }
+        
+        div.infoplus_view_wrap_inner {
+            overflow-x: auto;
+            position: relative;
+            top: 10px;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        div.infoplus_view {
+            background-color: white;
+            margin-bottom: 15px;
+            display: block;
+            padding: 10px;
+            position: relative;
+        }
+        
+        div.infoplus_view {
+            padding: 0;
+        }
+        
+        TABLE {
+            BORDER-TOP: medium none;
+            BORDER-RIGHT: medium none;
+            BORDER-COLLAPSE: collapse;
+            BORDER-BOTTOM: medium none;
+            BORDER-LEFT: medium none;
+        }
+        
+        TABLE {
+            FONT-SIZE: 8pt;
+            FONT-FAMILY: Microsoft YaHei;
+            TEXT-TRANSFORM: none;
+            FONT-WEIGHT: normal;
+            COLOR: black;
+            FONT-STYLE: normal;
+        }
+        
+        col {
+            display: table-column;
+        }
+        
+        tbody {
+            border-color: inherit;
+            display: table-row-group;
+            vertical-align: middle;
+        }
+        
+        TD.xdTitleCell {
+            BORDER-TOP: #bfbfbf 1pt solid;
+            BORDER-RIGHT: #bfbfbf 1pt solid;
+            PADDING-BOTTOM: 14px;
+            TEXT-ALIGN: center;
+            PADDING-TOP: 32px;
+            PADDING-LEFT: 22px;
+            BORDER-LEFT: #bfbfbf 1pt solid;
+            PADDING-RIGHT: 22px;
+            BACKGROUND-COLOR: #ffffff;
+            valign: bottom;
+        }
+        
+        TD.xdTableContentCell {
+            BORDER-RIGHT: #bfbfbf 1pt solid;
+            BORDER-BOTTOM: #bfbfbf 1pt solid;
+            PADDING-BOTTOM: 0px;
+            PADDING-TOP: 0px;
+            PADDING-LEFT: 0px;
+            BORDER-LEFT: #bfbfbf 1pt solid;
+            PADDING-RIGHT: 0px;
+            BACKGROUND-COLOR: #ffffff;
+            valign: top;
+        }
+        
+        TABLE {
+            FONT-SIZE: 8pt;
+            FONT-FAMILY: Microsoft YaHei;
+            TEXT-TRANSFORM: none;
+            FONT-WEIGHT: normal;
+            COLOR: black;
+            FONT-STYLE: normal;
+        }
+        
+        div.form_remark_holder {
+            margin: auto;
+            background-color: white;
+            color: #0560A6;
+        }
+        
+        .round-corner {
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+            padding: 4px 0;
+            border-collapse: separate;
+        }
+        
+        div.form_remark_holder ul {
+            background-color: #ffffff;
+            list-style: none;
+            text-align: center;
+            padding: 5px 20px;
+        }
+        
+        div.form_remark_holder ul li {
+            font-size: 10px;
+            border-bottom: 1px solid gray;
+            text-align: left;
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+        
+        div.form_remark_title {
+            font-size: 0.9rem;
+        }
+        
+        div.form_remark_title {
+            font-size: 14px;
+            overflow: hidden;
+        }
+        
+        .color_b2 {
+            color: #0560A6;
+        }
+        
+        .color_o1 {
+            color: #FAAC18;
+        }
+        
+        .green_holder {
+            background-color: #4cb050;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .white_holder {
+            position: relative;
+            width: 361px;
+            top: 0;
+            z-index: 10;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px #d5d5d5 solid;
+        }
+        
+        #master_footer {
+            background-color: #f3f3f3;
+        }
+        
+        .time {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-wrap: wrap;
+            height: 110px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            background-color: white;
+            box-shadow: 0 5px 15px #c1c1c1;
+        }
+        
+        .time .top,
+        .time .bottom {
+            height: 38px;
+            line-height: 24px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-wrap: wrap;
+            /* border-bottom: 1px #808080 solid; */
+        }
+        
+        .time .top p,
+        .time .bottom p {
+            display: flex;
+            align-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            letter-spacing: 1px;
+            font-size: 11px;
+            line-height: 13px;
+        }
+        
+        font {
+            font-size: 14px;
+        }
+        
+        .text_hz {
+            font-size: 9pt;
+        }
+        
+        .text_sz {
+            font-size: 9pt;
+            letter-spacing: 1px;
+        }
+        
+        .pic {
+            position: absolute;
+            left: -40px;
+            transition: all 0.2s ease-in;
+        }
+        
+        .font-crw {
+            margin-left: 8px;
+            transition: all 0.2s ease-in;
+        }
+    </style>
+    <style type="text/css"></style>
+    <script src="http://yzbfw.ccnu.edu.cn/infoplus/static/themes/default/mobile/js/mobile.js?v=20200611-193502"></script>
+    <style type="text/css" media="all" id="infoplus_view_8404_0_style"></style>
+    <link type="text/css" media="all" rel="stylesheet" id="infoplus_view_8404_0_cached_link" href="http://yzbfw.ccnu.edu.cn/infoplus/form/css/1b17faf0245e53f306dbd0b9a6a25a08.css">
+</head>
+
+<body>
+    <div id="div_render_container" style="display: block;">
+        <form id="renderForm">
+            <div id="div_content" class="div_content">
+                <div class="green_holder"><img width="40px" height="42px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGcAAAB1CAMAAABkgQ9bAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAxRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QjFDMzFDQTgxMzlDMTFFQjk0RkJCREVBMTE4OEIzODQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QjFDMzFDQTcxMzlDMTFFQjk0RkJCREVBMTE4OEIzODQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTggV2luZG93cyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSIxMENDQjc2MzI4M0Y2QTk0MDdBNzEwQzhCRTgwRTNDQyIgc3RSZWY6ZG9jdW1lbnRJRD0iMTBDQ0I3NjMyODNGNkE5NDA3QTcxMEM4QkU4MEUzQ0MiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6xcUaYAAADAFBMVEVTw1xjt2jk/daXtZnE/clTqndmqmRi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"
+                        alt=""><span style="color: white;font-size:11px;font-weight: 500;line-height: 37px;text-align: left;flex-grow: 2;margin-left: 8px;">学生临时出入申请:填写申请(已完成)&nbsp;&nbsp;&nbsp;&nbsp;流水号：300628</span>
+                </div>
+                <div id="nav_green" class="white_holder"><img class="pic" width="40px" height="42px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGcAAAB1CAMAAABkgQ9bAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAxRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QjFDMzFDQTgxMzlDMTFFQjk0RkJCREVBMTE4OEIzODQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QjFDMzFDQTcxMzlDMTFFQjk0RkJCREVBMTE4OEIzODQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTggV2luZG93cyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSIxMENDQjc2MzI4M0Y2QTk0MDdBNzEwQzhCRTgwRTNDQyIgc3RSZWY6ZG9jdW1lbnRJRD0iMTBDQ0I3NjMyODNGNkE5NDA3QTcxMEM4QkU4MEUzQ0MiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6xcUaYAAADAFBMVEVTw1xjt2jk/daXtZnE/clTqndmqmRi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"
+                    />
+                    <span class="font-crw" style="color: #0c8e62;font-size:11px;font-weight: 500;line-height:37px;text-align: left;flex-grow: 2;">此任务已处理，您无需任何操作</span><img width="40px" height="42px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG0AAAB1CAMAAABzo5+SAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAxRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Q0M0NkUyMzkxMzlEMTFFQjlFMzNEREZFOTlFMTQyNEIiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Q0M0NkUyMzgxMzlEMTFFQjlFMzNEREZFOTlFMTQyNEIiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTggV2luZG93cyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSIxMENDQjc2MzI4M0Y2QTk0MDdBNzEwQzhCRTgwRTNDQyIgc3RSZWY6ZG9jdW1lbnRJRD0iMTBDQ0I3NjMyODNGNkE5NDA3QTcxMEM4QkU4MEUzQ0MiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6RB4bBAAABzlBMVEX29PX19ff48/ny9/D09PTv+fHh+P7k+//t9+/////29vb5+fnw8PD39/fy8vL6+vrv7+/x8fHu7u77+/vt7e34+Pjs7Oz8/Pzz8/P9/f3r6+tOTk7+/v5TU1NLS0vq6upRUVHp6enm5uZPT09VVVVSUlJQUFBISEhCQkI9PT1DQ0NJSUng4ODl5eXn5+fo6OhHR0dGRkZMTExFRUU/Pz/f39/i4uLk5ORUVFRaWlo6Ojrj4+Pa2tpKSkpNTU1ERESurq6Xl5dZWVlcXFw4ODiDg4NXV1fZ2dlbW1vKysrb29vh4eHCwsKpqak+Pj5kZGRBQUFeXl41NTXMzMxlZWXU1NSWlpZ6enrX19dYWFiNjY05OTk3NzeJiYlvb2+ioqI7OzuIiIh5eXk8PDzQ0NCZmZnPz8+jo6POzs69vb1tbW2QkJBWVlZ4eHjIyMjHx8eUlJQ0NDSVlZViYmJqamqtra2YmJhxcXHS0tKzs7NsbGzAwMB0dHRdXV3d3d1oaGiHh4fGxsZra2uqqqpmZmZfX19gYGC7u7u3t7fY2NgwMDAzMzO/v7+8vLx9fX2Tk5OhoaHDw8NAQECnp6djY2OAgICxsbG+vr6SkpL19fWKzMNTAAAD6ElEQVR42uzXhbIlNRAG4AsE6dgkGZfjrvfIdXddd3ffxd3d3Zm35cATLBSZAmr+F/hqku709NgTSWbsySQz9lSSGXs8yYz9n/NokklYeyTJJKw9lmQS1uIkk2qplmqplmqp9u/Sii54HYf40+CB64ClV6PE9JS0jUht+/YNB/RqJuKYxTFZACAMYE+vBpwaLpeGoaYpE5Rq/jaOfEMpA7qTInI506thhAmmwrMWjq/czSmpuwM4RUQWT14KK+Wdi0SvxmJnHAFayByrVlvZyrd6tW40bbn+mdlGuFYZ1rOZX8DfL8Ae6OoAwrG9UpppnX++OVNqvIddKqOiJs3Yh1FVvhIO85lseLbaWA8wMBwbejRv3BSxe7v35WArW6+1JtYtB7AErqkDwBOI/7r8IN+caz6YzZ8zipGH/up7+bCagByN+fy1UrZWay3NvrsLXUOaujTLUSzG8s7RanZpuf7RKRk5pgSpNL2T7wBQOQXt52bCw5ufItcTPoV5TVoXwC4o25BMTHajUX0iNLpMjPVouVG/WWJUF4ALHQfFejUsOTFtZhQ5ADBK9WoGlX/O0aKlih0rZno1GVDXFIpgcAMFkaNX4xybNrXodPvGgeMdGmg+yT8uzaRTr29mmuGlD9t6NWLTHPKDW/eaFyqZH94+pVcLYJIzr53vLYaDiQu9oweBtX2bapo4SAgco6+q+SMb9XymN/czZg5QZGuapvM+4ehyPyxV8+Vy2N9xMIFxV2i6N2UQLg+en1jMZ5v1XvYnEftQhIKmfgOHIXWnvjSsL86Uw96qgZhh6dIUdAgK6FvZI8NMplU9/JrJRMx8TScZIwu4Q75/qdQv9RsnvkPKdDgoTR0Q7REQFoL2/bUTpy9+hqJ2ZEmYMvVotwxXkXjco5O7z25TrHnrEIBzhuGBYcYCw99c3x7+TwGU5Y+0kSQtmyi9misKGFAgAzOilo0LejXUdVzX48ihTicgoHnHcQNqxjaQha9vXr2/sq1ZA4vblNhnXrjXahyqXH1Tr2YURv92eOrH1vXlrdJceFpzB5hTDOgzs18My5V+s1a6CUKZkNO04zBuS0ZeHnywvJH5ZHCo/7REMfFzRFeVgCNgtbE1d2xQvXK9sj5NXGQqTdOUCbA8uD3RqIW1+jAsvzFumMKNmR7Nssc9n+1+vFNeWqyslbOXScwCMDXNAIdM2iBzq7MTG7XalcGrn49WNwd8T9MeIJSBPXrymxdnzuYzmwc4dEzuE6qpu+fBzrGCq97/7dq5u10T+/vADKRpf/tnkmqplmqplmqplmqplmqplmqplmqplmqp9h/QUDKR3IuZ/bsAAwCuIsBSmLZmJAAAAABJRU5ErkJggg=="
+                        alt=""></div>
+                <div id="renderContent_holder" style="">
+
+                    <!-- 2.the holder for form renderer -->
+                    <div id="render_holder">
+                        <div id="form_holder" style="width: 361px; display: block;">
+                            <div class="infoplus_view_wrap_outer">
+                                <div class="infoplus_view_wrap_inner">
+                                    <div id="infoplus_view_8404_0" class="infoplus_view">
+                                        <div align="center">
+                                            <table style="overflow: hidden;;BORDER-TOP-STYLE: none; WORD-WRAP: break-word; BORDER-LEFT-STYLE: none; WIDTH: 361px; BORDER-COLLAPSE: collapse; TABLE-LAYOUT: fixed; BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none" class="xdFormLayout">
+                                                <colgroup>
+                                                    <col width="360" style="WIDTH: 361px">
+                                                </colgroup>
+                                                <tbody>
+                                                    <tr style="height: 28px;" class="xdTitleRow">
+                                                        <td style="BORDER-TOP: #bfbfbf 1pt; BORDER-RIGHT: #bfbfbf 1pt; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #000000 1pt; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; PADDING-LEFT: 10px; BORDER-LEFT: #bfbfbf 1pt; PADDING-RIGHT: 10px" class="xdTitleCell">
+                                                            <div align="center" style="MARGIN-BOTTOM: 0pt; MARGIN-TOP: 0cm; PADDING-LEFT: 0cm; PADDING-RIGHT: 0cm">
+                                                                <div><strong>
+                                                                        <font style="font-size: 22px;" size="5">学生临时出入申请</font>
+                                                                    </strong></div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="xdTableContentRow">
+                                                        <td style="BORDER-TOP: #000000 1pt; BORDER-RIGHT: #bfbfbf 1pt; VERTICAL-ALIGN: top; BORDER-BOTTOM: #bfbfbf 1pt; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; PADDING-LEFT: 10px; BORDER-LEFT: #bfbfbf 1pt; PADDING-RIGHT: 10px" class="xdTableContentCell">
+                                                            <div align="center">
+                                                                <table border="1" bordercolor="buttontext" style="WORD-WRAP: break-word; BORDER-TOP: medium none; BORDER-RIGHT: medium none; WIDTH: 361px; BORDER-COLLAPSE: collapse; TABLE-LAYOUT: fixed; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none" class="xdLayout">
+                                                                    <colgroup>
+                                                                        <col width="169" style="WIDTH: 169px">
+                                                                        <col width="168" style="WIDTH: 168px">
+                                                                    </colgroup>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid;   PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT: 5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px">
+                                                                                <div align="center">
+                                                                                    <font size="3">姓名</font>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid;   PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT: 5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px">
+                                                                                <div class="text_hz" " align="center ">
+                                                                                    李秀莹
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                                <div align="center ">
+                                                                                    <font size="3 ">学号</font>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                                <div class="text_sz " align="center ">
+                                                                                    2017213015</div>
+                                                            </div>
+                                                            </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div align="center ">
+                                                                        <font size="3 ">学院(中心、所)</font>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div  class="text_hz " align=" center ">
+                                                                        外国语学院
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div align="center ">
+                                                                        <font size="3 ">身份证号</font>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div class="text_sz " align="center ">430722199910180008</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div align="center ">
+                                                                        <font size="3 ">学生类别</font>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div  class="text_hz " align="center ">本科生</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div align="center ">
+                                                                        <font size="3 ">本人手机号</font>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div class="text_sz " align="center ">17362993912</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div align="center ">
+                                                                        <font size="3 ">外出原因</font>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div  class="text_hz " align=" center ">买手机</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px;height:60px ">
+                                                                    <div align="center ">
+                                                                        <font size="3 ">外出目的地</font>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div  class="text_hz " align="center ">江汉路</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px;height:60px ">
+                                                                    <div align="center ">
+                                                                        <font size="3 ">外出原因说明</font>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div  class="text_hz " align=" center ">手机突然损坏，急需购买新手机</div>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div align="center ">
+                                                                        <font size="3 ">外出时间</font>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div class="text_sz " align="center ">2020-10-2509:00</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div align="center ">
+                                                                        <font size="3 ">返校时间</font>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div class="text_sz " align="center ">2020-10-2521:30</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="fake ">
+                                                                <td colspan="2 " style="border-width: 0px; border-style: none; border-color: rgb(216, 216, 216); vertical-align: middle; padding: 0px; ">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2 " style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px;
+                                                                                    PADDING-LEFT: 5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div align="center ">
+                                                                        <font size="3 ">
+                                                                        </font>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="fake ">
+                                                                <td style="border-width: 0px; border-style: none; border-color: rgb(216, 216, 216); vertical-align: middle; padding: 0px; ">
+                                                                </td>
+                                                                <td style="border-width: 0px; border-style: none; border-color: rgb(216, 216, 216); vertical-align: top; padding: 0px; ">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="height: 60px;;BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px;
+                                                                                    PADDING-LEFT: 5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px; ">
+                                                                    <div align="center ">
+                                                                        <div>
+                                                                            <font size="3 ">辅导员审核</font>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: top; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT: 5px;
+                                                                                    BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div  class="text_hz " align="left ">
+                                                                        同意
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="fake ">
+                                                                <td style="border-width: 0px; border-style: none; border-color: rgb(216, 216, 216); vertical-align: middle; padding: 0px; ">
+                                                                </td>
+                                                                <td style="border-width: 0px; border-style: none; border-color: rgb(216, 216, 216); vertical-align: middle; padding: 0px; ">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div align="center ">
+                                                                        <font size="3 ">审核人</font>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div  class="text_hz " align="center ">
+                                                                        潘英子
+                                                                           
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="fake ">
+                                                                <td style="border-width: 0px; border-style: none; border-color: rgb(216, 216, 216); vertical-align: middle; padding: 0px; ">
+                                                                </td>
+                                                                <td style="border-width: 0px; border-style: none; border-color: rgb(216, 216, 216); vertical-align: middle; padding: 0px; ">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div align="center ">
+                                                                        <font size="3 ">审核日期</font>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt solid; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt solid; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt solid; PADDING-RIGHT: 10px ">
+                                                                    <div class="text_sz " align="center ">
+                                                                        2020-10-24
+                                                                               
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan="2 " style="BORDER-TOP: #d8d8d8 1pt solid; BORDER-RIGHT: #d8d8d8 1pt; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #d8d8d8 1pt; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT:
+                                                                                    5px; BORDER-LEFT: #d8d8d8 1pt; PADDING-RIGHT: 10px ">
+                                                                    <div align="center ">
+                                                                        <font size="3 "></font>&nbsp;
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                            </table>
+                                        </div>
+                                        <div></div>
+                                        <div></div>
+                                        </td>
+                                        </tr>
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                    <div align="center "></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="variables_container " style="display: none; "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_EXECUTE_INDEP_ORGANIZE_Name " name="_VAR_EXECUTE_INDEP_ORGANIZE_Name
+                                                                                    " value="华中师范大学 "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var "
+                                id="_VAR_ACTION_ACCOUNT " name="_VAR_ACTION_ACCOUNT " value="2017213015 "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_ACTION_INDEP_ORGANIZES_Codes " name="_VAR_ACTION_INDEP_ORGANIZES_Codes "
+                                value="0 "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_ACTION_REALNAME " name="_VAR_ACTION_REALNAME " value="李秀莹 "><input type="hidden " class="infoplus_control infoplus_hiddenControl
+                                                                                    infoplus_var "
+                                id="_VAR_ACTION_INDEP_ORGANIZES_Names " name="_VAR_ACTION_INDEP_ORGANIZES_Names " value="华中师范大学 "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_OWNER_ACCOUNT " name="_VAR_OWNER_ACCOUNT "
+                                value="2017213015 "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_ACTION_ORGANIZES_Names " name="_VAR_ACTION_ORGANIZES_Names " value="外国语学院 "><input type="hidden
+                                                                                    " class="infoplus_control infoplus_hiddenControl infoplus_var "
+                                id="_VAR_STEP_CODE " name="_VAR_STEP_CODE " value="TXSQ "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_ACTION_ORGANIZE " name="_VAR_ACTION_ORGANIZE " value="5700
+                                                                                    "><input type="hidden "
+                                class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_OWNER_USERCODES " name="_VAR_OWNER_USERCODES " value="2017213015 "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var
+                                                                                    " id="_VAR_EXECUTE_ORGANIZE "
+                                name="_VAR_EXECUTE_ORGANIZE " value="5700 "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_EXECUTE_ORGANIZES_Codes " name="_VAR_EXECUTE_ORGANIZES_Codes " value="5700
+                                                                                    "><input type="hidden "
+                                class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_NOW_DAY " name="_VAR_NOW_DAY " value="25 "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_ACTION_INDEP_ORGANIZE "
+                                name="_VAR_ACTION_INDEP_ORGANIZE " value="0 "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_OWNER_EMAIL " name="_VAR_OWNER_EMAIL " value="578402682@qq.com "><input type="hidden
+                                                                                    " class="infoplus_control infoplus_hiddenControl infoplus_var "
+                                id="_VAR_OWNER_REALNAME " name="_VAR_OWNER_REALNAME " value="李秀莹 "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_ENTRY_TAGS " name="_VAR_ENTRY_TAGS " value="
+                                                                                    "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var "
+                                id="_VAR_ACTION_INDEP_ORGANIZE_Name " name="_VAR_ACTION_INDEP_ORGANIZE_Name " value="华中师范大学 "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_NOW " name="_VAR_NOW " value="1601006116 ">
+                            <input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_ACTION_ORGANIZE_Name " name="_VAR_ACTION_ORGANIZE_Name " value="外国语学院 "><input type="hidden " class="infoplus_control infoplus_hiddenControl
+                                                                                    infoplus_var "
+                                id="_VAR_EXECUTE_ORGANIZES_Names " name="_VAR_EXECUTE_ORGANIZES_Names " value="外国语学院 "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_OWNER_ORGANIZES_Codes " name="_VAR_OWNER_ORGANIZES_Codes "
+                                value="5700 "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_ADDR " name="_VAR_ADDR " value="122.247.145.175 ">
+                            <input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_URL_Attr " name="_VAR_URL_Attr " value="{} "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var
+                                                                                    " id="_VAR_ENTRY_NUMBER "
+                                name="_VAR_ENTRY_NUMBER " value="325933 "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_EXECUTE_INDEP_ORGANIZES_Names " name="_VAR_EXECUTE_INDEP_ORGANIZES_Names " value="华中师范大学 ">
+                            <input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_ENTRY_NAME " name="_VAR_ENTRY_NAME " value="学生临时出入申请_ "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var "
+                                id="_VAR_STEP_NUMBER " name="_VAR_STEP_NUMBER " value="662705 "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_POSITIONS " name="_VAR_POSITIONS " value="5700:X0031:2017213015 ">
+                            <input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_OWNER_ORGANIZES_Names " name="_VAR_OWNER_ORGANIZES_Names " value="外国语学院 "><input type="hidden " class="infoplus_control infoplus_hiddenControl
+                                                                                    infoplus_var "
+                                id="_VAR_URL " name="_VAR_URL " value="http://yzbfw.ccnu.edu.cn/infoplus/form/662705/render "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_EXECUTE_ORGANIZE_Name " name="_VAR_EXECUTE_ORGANIZE_Name "
+                                value="外国语学院 "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_EXECUTE_INDEP_ORGANIZES_Codes " name="_VAR_EXECUTE_INDEP_ORGANIZES_Codes " value="0 "><input type="hidden
+                                                                                    " class="infoplus_control infoplus_hiddenControl infoplus_var "
+                                id="_VAR_RELEASE " name="_VAR_RELEASE " value="true "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_EXECUTE_POSITIONS " name="_VAR_EXECUTE_POSITIONS " value="5700:X0031:2017213015 ">
+                            <input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_NOW_MONTH " name="_VAR_NOW_MONTH " value="9 ">
+                            <input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_ACTION_USERCODES " name="_VAR_ACTION_USERCODES " value="2017213015 "><input type="hidden " class="infoplus_control infoplus_hiddenControl
+                                                                                    infoplus_var "
+                                id="_VAR_ACTION_EMAIL " name="_VAR_ACTION_EMAIL " value="578402682@qq.com "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_ACTION_ORGANIZES_Codes " name="_VAR_ACTION_ORGANIZES_Codes "
+                                value="5700 "><input type="hidden " class="infoplus_control infoplus_hiddenControl infoplus_var " id="_VAR_EXECUTE_INDEP_ORGANIZE " name="_VAR_EXECUTE_INDEP_ORGANIZE " value="0 "><input type="hidden " class="infoplus_control
+                                                                                    infoplus_hiddenControl infoplus_var "
+                                id="_VAR_NOW_YEAR " name="_VAR_NOW_YEAR " value="2020 "></div>
+                    </div>
+                </div>
+                <!-- 5.the holder for form remark renderer -->
+            </div>
+            <div class="time ">
+                <div class="top " style="margin-top: 20px; ">
+                    <p class="t_text " style="text-align:left;color: #0560a6;position: relative;left: 1%;font-size: 12px; "><img style="margin-right: 5px; " width="18px " height="18px " src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAvCAMAAACSXLn7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAxRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QTVEMTFGQzQxM0E5MTFFQjk3NkVDMEI4NDkyRDI3QTUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QTVEMTFGQzMxM0E5MTFFQjk3NkVDMEI4NDkyRDI3QTUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTggV2luZG93cyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSIwMDBFRkNCODU4RUU0M0UxRTkxNUYyRURBRjFCRTc5QyIgc3RSZWY6ZG9jdW1lbnRJRD0iMDAwRUZDQjg1OEVFNDNFMUU5MTVGMkVEQUYxQkU3OUMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5PxpLcAAADAFBMVEVypPZIe9NajOKHp9YxV6spVaI3a8Mm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"
+                            alt=" ">潘英子&nbsp;填写/办理了本科生辅导员审核(<span style="color: #019966; ">同意</span>)</p>
+                    <p class="t_time " style="color:#808080;position: relative;left: 32%; font-size: 12px; ">2020-10-24 16:30</p>
+                </div>
+                <hr style="color: #808080;width:92.5%;left: 4.5%;position: relative; " />
+                <div class="bottom " style="margin-bottom:20px ">
+                    <p class="t_text " style="text-align:left;color: #0560a6;left: -2%;position: relative;width: 80%;font-size: 12px; "><img style="margin-right: 5px; " width="18px " height="18px " src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAvCAMAAACSXLn7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAxRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QTVEMTFGQzQxM0E5MTFFQjk3NkVDMEI4NDkyRDI3QTUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QTVEMTFGQzMxM0E5MTFFQjk3NkVDMEI4NDkyRDI3QTUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTggV2luZG93cyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSIwMDBFRkNCODU4RUU0M0UxRTkxNUYyRURBRjFCRTc5QyIgc3RSZWY6ZG9jdW1lbnRJRD0iMDAwRUZDQjg1OEVFNDNFMUU5MTVGMkVEQUYxQkU3OUMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5PxpLcAAADAFBMVEVypPZIe9NajOKHp9YxV6spVaI3a8Mm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"
+                            alt=" ">您(李秀莹)填写/办理了填写申请(<span style="color: #019966; ">提交</span>)</p>
+                    <p class="t_time " style="color:#808080;position: relative;left: 32%;font-size: 12px; ">2020-10-24 15:49</p>
+                </div>
+            </div>
+    </div>
+    </form>
+    <div id="master_footer ">
+        <div id="div_footer_copy_containers ">
+            <div style="height:1px;background-color:#999999 "></div>
+            <div style="height:1px;background-color:#FFFFFF "></div>
+            <div id="div_footer_copy_content " style="color: #666666;font-size: 12px; "><span class="copyright ">©</span> 2009 - 2020. 一张表服务流程平台(ccnu.edu.cn), All rights reserved. Version <span style="letter-spacing: 1px; ">20200611-193502</span></div>
+        </div>
+    </div>
+    </div>
+</body>
+<script>
+    var div = document.getElementById('nav_green');
+    var pic=document.getElementsByClassName('pic')[0];
+    var crw=document.getElementsByClassName('font-crw')[0];
+    var green_holder=document.getElementsByClassName("green_holder ")[0];
+    console.log(crw.style);
+    var nowscrolltop=0; 
+function getScrollTop() {
+	var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+	return scrollTop;
+}
+    window.onscroll=()=>{
+         nowscrolltop=getScrollTop();
+         if(nowscrolltop>=div.offsetHeight){
+              div.style.position="fixed ";
+              pic.style.left="0px "
+              crw.style.marginLeft="48px ";
+              green_holder.style.marginBottom="44px "
+         }else{
+            div.style.position="relative ";
+              pic.style.left="-40px ";
+              crw.style.marginLeft="8px ";
+              green_holder.style.marginBottom="0px "
+         }
+    }
+</script>
+</html>
